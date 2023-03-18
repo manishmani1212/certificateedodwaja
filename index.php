@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Edodwaja Certificates Get your certificates verfied with us.
+    </title>
+    <style>
+        /* body{
+            background-image: url("backgrond.jpg");
+            background-position: "center";
+            background-size: "cover";
+        } */
+        .fa-brands{
+            color: green;
+            font-size: 2.45rem;
+        }
+        .title .btn:hover {
+            background-color: #272727;
+        }
+        @import url('https://fonts.googleapis.com/css2? family=Nunito+Sans:wght@200&display=swap');
+        .navbar{
+          margin:1%;
+          width: 98%;
+          display: flex;
+          flex-direction:row;
+          list-style:none;
+          padding: 20px 0;
+          border-radius:25px;
+          border:0.1px solid #90ee90;
+          background-color:white;
+          box-shadow:0 4px 8px 0 #3cb043,0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        .n1{
+          margin:auto;
+          color:black;
+          font-size: 20px;
+          cursor: pointer;
+          display: flex;
+        }
+        .m1{
+          padding:0px 110px;
+        }
+        
+        li:hover{
+          box-shadow:inset 0 0 0 0 ;
+          color:#3cb043;
+          transform:scaleX(1);
+        
+        }
+        .foot{
+          background-color:#3cb043;
+          border:0.1px solid #90ee90;
+        }
+       
+
+
+    </style>
+    
+</head>
+<body>
+<!-- php code start  -->
+<? include "db.php";
+
+ if(isset($_GET["submit"])){
+    $certi_id = $_GET["id"];
+    echo $certi_id;
+    $sql="SELECT * from edodwaja_certi where certi_id = '$certi_id'";
+    $query=mysqli_query($conn,$sql);
+    $rows = mysqli_num_rows($query);
+
+    if($rows !=0){
+        while ($info=mysqli_fetch_array($query)) {
+            echo $info['id'];
+            echo $info['certi_name'];
+            echo $info['certi_id'];
+            echo $info['certi_pdf'];
+               
+        
+    
+         
+          }
+    
+          
+
+    }
+    else{
+        echo "No Data Found";
+    }
+   
+    }
+
+?>
+<!-- php code end -->
+
+
+   <!-- header start -->
+<!-- header start -->
+<header class="text-gray-600 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a  href="/"class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <a href="https://edodwaja.com/" target="_blank"> <img src="eodo.png" alt=""></a>
+        <!-- <span class="ml-3 text-xl">Tailblocks</span> -->
+      </a>
+    
+      <span class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a href="https://www.facebook.com/people/Edodwaja-Clairvoyance/100069273602308/" class="mr-5 hover:text-gray-900"><i class="fa-brands fa-facebook"></i></a>
+       
+        <a href="https://www.instagram.com/edodwaja/" class="mr-5 hover:text-gray-900"><i class="fa-brands fa-instagram"></i></a>
+       
+        <a href="https://www.youtube.com/channel/UCoD-y8Ra8YT08-ejF-t-blg" class="mr-5 hover:text-gray-900"><i class="fa-brands fa-youtube"></i></a>
+       
+       
+</span>
+      <!-- <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button> -->
+    </div>
+  </header>
+  <div class="navbar">
+    <ul class="n1">
+      <li class="m1">Home</li>
+      <li class="m1">AboutUS</li>
+      <li class="m1">Courses</li>
+      <li class="m1">ContactUs</li>
+      <li class="m1">Help</li>
+    </ul>
+  </div>
+
+<!-- header end -->
+<!-- body start -->
+<section class="text-gray-600 body-font " >
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-12">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Get Your Certificate Verified</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Edodwaja Pvt Ltd provides you the valid certificates and allows other to verify the valid certificates.</p>
+      </div>
+      <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+       
+        <div class="relative flex-grow w-full">
+            <form action="view.php" method="GET">
+
+          <label for="id" class="leading-7 text-sm text-gray-600">CertificateId:</label>
+          <input autocomplete="off" type="text" id="id" name="id" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-4 px-3 p-4 leading-8 transition-colors duration-200 ease-in-out " placeholder="Enter a Certificate Id here...">
+        </div> <br>
+        <button type="submit" name="submit" class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded ">Get Certificate</button>
+    </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- certificate download process start -->
+  <section class="text-gray-600 body-font">
+    <div class="flex flex-col text-center w-full mb-12">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Verification Steps</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Know how you can get your certificate verifed and download your digital certificate .</p>
+      </div>
+    <div class="container px-5 py-24 mx-auto flex flex-wrap">
+      <div class="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
+        <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+        </div>
+        <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-green-500 text-white relative z-10 title-font font-medium text-sm">1</div>
+        <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+          <div class="flex-shrink-0 w-24 h-24 bg-green-100 text-green-500 rounded-full inline-flex items-center justify-center">
+            <i class="fa-solid fa-fingerprint" style="font-size: 3rem;"></i>
+          </div>
+          <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Certificate Id</h2>
+            <p class="leading-relaxed">Get hold of your unique certificate id. To get Started with the verification process. If you dont have your id contact the Edodwaja team.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+        <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+        </div>
+        <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-green-500 text-white relative z-10 title-font font-medium text-sm">2</div>
+        <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+          <div class="flex-shrink-0 w-24 h-24 bg-green-100 text-green-500 rounded-full inline-flex items-center justify-center">
+            <i class="fa-solid fa-magnifying-glass"  style="font-size: 3rem;"></i>
+          </div>
+          <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Search</h2>
+            <p class="leading-relaxed">After Entering the Id Just Click the button Get Certificate and Your will be shown your certifiate Page</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+        <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+        </div>
+        <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-green-500 text-white relative z-10 title-font font-medium text-sm">3</div>
+        <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+          <div class="flex-shrink-0 w-24 h-24 bg-green-100 text-green-500 rounded-full inline-flex items-center justify-center">
+            <i class="fa-solid fa-certificate" style="font-size: 3rem;"></i>
+          </div>
+          <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Download Certificate</h2>
+            <p class="leading-relaxed">If your id successfully validated than you can donwload your verifed digital certificate from our portal.</p>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </section>
+  <!-- certificate download proecess end  -->
+<!-- body end -->
+
+
+<!-- footer start  -->
+<span class="foot">
+<footer class="text-gray-600 body-font">
+  <span class="foot1">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+       <img src="logo.png" alt="">
+        <span class="ml-3 text-xl"></span>
+      </a>
+      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©  Edodwaja Pvt. Ltd. —
+        <a href="https://edodwaja.com/" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Edodwaja</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a class="text-gray-500" href="https://www.facebook.com/people/Edodwaja-Clairvoyance/100069273602308/">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <!-- <a class="ml-3 text-gray-500" href="">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a> -->
+        <a class="ml-3 text-gray-500" href="https://www.instagram.com/edodwaja/">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500" href="https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F75578886%2Fadmin%2F">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </span>
+  </footer>
+  </span>
+<!-- footer end -->
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script>
+        //Get the current year for the copyright using jquery
+        $('#year').text(new Date().getFullYear());
+       
+    </script>
+</body>
+</html>
+</body>
+</html>
